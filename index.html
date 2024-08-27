@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolveCode</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/59118favi.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="./assets/59118gradiet.png" height="40px" alt="">
+    </header>
+    <div class="container">
+        
+        <div class="left">
+            <label><i class="fa-brands fa-html5"></i>HTML5</label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+
+
+            <label><i class="fa-brands fa-css3-alt"></i>CSS3</label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+
+
+            <label><i class="fa-brands fa-js"></i>Javascript</label>
+            <textarea id="js-code" onkeyup="run()"></textarea>
+        </div>
+        <div class="right">
+            <label><i class="fa-solid fa-code"></i>Output</label>
+            <iframe id="output">
+            </iframe>
+        </div>
+    </div>
+</body>
+<script>
+    function run(){
+        var htmlCode = document.getElementById("html-code").value;
+        var cssCode = document.getElementById("css-code").value;
+        var jsCode = document.getElementById("js-code").value;
+        var output = document.getElementById("output");
+        output.contentDocument.body.innerHTML = htmlCode + "<style>" + cssCode + "</style>";
+        output.contentWindow.eval(jsCode);
+    }
+</script>
+</html>
